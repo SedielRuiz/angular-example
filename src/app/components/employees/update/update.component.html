@@ -1,0 +1,42 @@
+<form [formGroup]="employeeForm" (ngSubmit)="update()">
+    <mat-card class="example-card">
+        <mat-card-header>
+        <mat-card-title>Update Employee</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input formControlName="name" matInput>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Last name</mat-label>
+                    <input formControlName="lastname" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Document</mat-label>
+                    <input formControlName="document" type="number" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" type="email" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Phone</mat-label>
+                    <input formControlName="phone" type="number" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address</mat-label>
+                    <input formControlName="address" matInput>
+                </mat-form-field>
+                <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button type="submit" color="basic">Save</button>
+            <button mat-button routerLink="/employee/consult" color="warn">Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+
+
+

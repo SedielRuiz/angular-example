@@ -1,0 +1,22 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-button *ngIf="!userService.isLogged()" routerLink="/login">LogIn</button>
+    <button mat-button *ngIf="!userService.isLogged()" routerLink="/register">Register</button>
+    
+    <button mat-button *ngIf="userService.isLogged()" routerLink="employee/consult">Employee</button>
+    <button mat-button *ngIf="userService.isLogged()" routerLink="/dashboard">Dashboard</button>
+
+    <span class="example-spacer"></span>
+
+    <button *ngIf="userService.isLogged()" mat-button [matMenuTriggerFor]="profileMenu">Profile</button>
+    <mat-menu #profileMenu="matMenu" xPosition="after">
+        <button mat-menu-item>Account</button>
+        <button mat-menu-item (click)="logout()" >LogOut</button>
+    </mat-menu>
+
+</mat-toolbar>
+
+
+
