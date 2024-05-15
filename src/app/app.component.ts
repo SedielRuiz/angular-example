@@ -11,7 +11,7 @@ import { MenuComponent } from './components/menu/menu.component'
         RouterLinkActive,
         MenuComponent
     ],
-    templateUrl: './app.component.html',
+    templateUrl : './app.component.html',
     styleUrl: './app.component.css'
 })
 export class AppComponent {
