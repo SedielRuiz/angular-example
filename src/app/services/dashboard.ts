@@ -18,4 +18,9 @@ export class DashboardService {
             this.httpClient.get(`${this.baseUrl}/employee/all`)
         )
     }
+    getAfiliation() {
+        return firstValueFrom(
+            this.httpClient.get(`${this.baseUrl}/afiliations/all`)
+        )
+    }
 }

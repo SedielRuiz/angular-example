@@ -19,9 +19,14 @@ export class DashboardComponent {
 
     ngOnInit() {
         this.getUsers()
+        this.getAfiliations()
     }
 
     async getUsers(){
         const response: any = await this.dashboardService.getUsers()
+    }
+
+    async getAfiliations(){
+        const response: any = await this.dashboardService.getAfiliation()
     }
 }

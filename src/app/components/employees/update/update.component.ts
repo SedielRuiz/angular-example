@@ -16,10 +16,10 @@ import { EmployeeService } from '../../../services/employee.service'
 	imports: [
 		RouterModule,
 		ReactiveFormsModule,
-		MatCardModule, 
+		MatCardModule,
 		MatButtonModule,
-		FormsModule, 
-		MatFormFieldModule, 
+		FormsModule,
+		MatFormFieldModule,
 		MatInputModule,
 		MatDividerModule
 	],

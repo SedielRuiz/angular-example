@@ -16,8 +16,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'
         MatMenuModule,
         MatButtonModule,
         MatIconModule,
-        MatToolbarModule, 
-        MatButtonModule, 
+        MatToolbarModule,
+        MatButtonModule,
         MatIconModule
     ],
     templateUrl: './menu.component.html',
