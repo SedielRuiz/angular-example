@@ -22,7 +22,7 @@ export class EmployeeService {
         return firstValueFrom(this.httpClient.post<any>(`${this.baseUrl}/employee/create`, formData));
     }
 
-    update(id: number, formData: any): Promise<any> { 
+    update(id: number, formData: any): Promise<any> {
         return firstValueFrom(this.httpClient.put<any>(`${this.baseUrl}/employee/update/${id}`, formData));
     }
 
