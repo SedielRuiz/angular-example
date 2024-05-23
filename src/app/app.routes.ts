@@ -9,6 +9,9 @@ import { ConsultEmployeeComponent } from './components/employees/consult/consult
 import { CreateEmployeeComponent } from './components/employees/create/create.component'
 import { UpdateEmployeeComponent } from './components/employees/update/update.component'
 
+import { CreateRelativesComponent } from './components/relatives/create/create.component'
+import { ConsultRelativesComponent } from './components/relatives/consult/consult.component'
+
 export const routes: Routes = [
     //{ path: '**', component: PageNotFoundComponent },
     {
@@ -44,5 +47,20 @@ export const routes: Routes = [
         path: 'employee/update/:id',
         component: UpdateEmployeeComponent,
         canActivate: [authGuard]
-    }
+    },
+    {
+        path: 'relatives/all',
+        component: CreateRelativesComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'relatives/create',
+        component: CreateRelativesComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'relatives/consult',
+        component: ConsultRelativesComponent,
+        canActivate: [authGuard]
+    },
 ]
