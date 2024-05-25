@@ -4,6 +4,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator'
 import { MatTableDataSource, MatTableModule } from '@angular/material/table'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { EmployeeAfiliationsService } from '../../../services/employee-afiliations.service'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-consult',
@@ -12,24 +13,22 @@ import { EmployeeAfiliationsService } from '../../../services/employee-afiliatio
 		RouterModule,
 		MatTableModule,
 		MatPaginatorModule,
-		MatButtonModule
+		MatButtonModule,
+		CommonModule,
 	],
   templateUrl: './consult.component.html',
   styleUrl: './consult.component.css'
 })
 export class ConsultEmployeeAfiliationsComponent implements AfterViewInit{
-	id: number = 0
+	employeeId: number = 0
 	data: any
 	constructor(
         private router: Router,
 		private route: ActivatedRoute,
     ) {
 		this.route.queryParams.subscribe(params => {
-			this.id = params['id']
+			this.employeeId = params['id']
 		  })
-		console.log(this.id)
-		this.data = this.router.getCurrentNavigation()?.extras.state
-		console.log(this.data)
     }
 
 	employeeAfiliationsService = inject(EmployeeAfiliationsService)
@@ -44,8 +43,7 @@ export class ConsultEmployeeAfiliationsComponent implements AfterViewInit{
 	    }
 
     async getAfiliation(){
-        const response: any = await this.employeeAfiliationsService.getAfiliations(this.id)
-		console.log(response.data)
+        const response: any = await this.employeeAfiliationsService.getAfiliations(this.employeeId)
 		this.dataSource = new MatTableDataSource<Afiliation>(response.data)
     }
 
@@ -58,7 +56,7 @@ export class ConsultEmployeeAfiliationsComponent implements AfterViewInit{
 		this.router.navigate(['/employee/afiliation/update', id], { state: data })
 	}
 	goToCreate() {
-		this.router.navigate(['employee/afiliation/create'], { state: this.data, queryParams: { id: this.id } })
+		this.router.navigate(['employee/afiliation/create'], { queryParams: { id: this.employeeId } })
 	}
 }
 

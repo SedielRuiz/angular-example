@@ -33,10 +33,9 @@ import { EmployeeAfiliationsService } from '../../../services/employee-afiliatio
   styleUrls: ['./create.component.css']
 })
 export class CreateEmployeeAfiliationsComponent {
-  id = 0
+  employeeId = 0
   afiliationForm: FormGroup
   afiliationService = inject(EmployeeAfiliationsService)
-  data: any
   instanceEmployeed: any
 
   constructor(
@@ -45,10 +44,9 @@ export class CreateEmployeeAfiliationsComponent {
     private route: ActivatedRoute,
   ) {
     this.route.queryParams.subscribe(params => {
-			this.id = params['id']
+			this.employeeId = params['id']
 		  })
-    this.data = this.router.getCurrentNavigation()?.extras.state
-    console.log(this.data)
+    console.log(this.employeeId)
     this.afiliationForm = new FormGroup({
 
       entityName: new FormControl(),
@@ -61,13 +59,10 @@ export class CreateEmployeeAfiliationsComponent {
   async create() {
     try {
       const data = this.afiliationForm.value
-      console.log(data)
       const afiliation = this.save(data)
-      console.log(afiliation)
-      console.log(this.id)
-      const response: any = await this.afiliationService.create(this.id, afiliation)
+      const response: any = await this.afiliationService.create(this.employeeId, afiliation)
       console.log(response)
-      this.router.navigate(['/employee/afiliation/consult'], { state: this.data, queryParams: { id: this.id } })
+      this.router.navigate(['/employee/afiliation/consult'], { queryParams: { id: this.employeeId } })
     } catch (response: any) {
       console.log(response.error.message)
       this.dialog.open(ErrorDialogComponent, {
@@ -81,10 +76,14 @@ export class CreateEmployeeAfiliationsComponent {
 
 
   save(data: any) {
-    this.instanceEmployeed.employeeId = this.id
+    this.instanceEmployeed.employeeId = this.employeeId
     this.instanceEmployeed.entityName = data.entityName
     this.instanceEmployeed.dateAfiliation = data.dateAfiliation
     this.instanceEmployeed.status = data.status
     return this.instanceEmployeed
+  }
+
+  goToConsult() {
+    this.router.navigate(['/employee/afiliation/consult'], { queryParams: { id: this.employeeId } })
   }
 }
