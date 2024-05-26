@@ -63,7 +63,7 @@ export class CreateRelativesComponent implements AfterViewInit {
 
     async create() {
         try {
-            const data = {...this.relativeForm.value, status: 1, employeeId: this.userId}
+            const data = {...this.relativeForm.value, status: true, employeeId: this.userId}
             const response: any = await this.relativeService.create(data)
             console.log(response)
             this.router.navigate(['/employee/relatives/consult',this.userId])
