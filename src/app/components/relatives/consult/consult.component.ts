@@ -34,6 +34,7 @@ export class ConsultRelativesComponent implements AfterViewInit {
     'department',
     'birthDate',
     'relationship',
+    'actions'
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -50,12 +51,12 @@ export class ConsultRelativesComponent implements AfterViewInit {
     this.dataSource = new MatTableDataSource<Relative>(response.data);
   }
 
-  async delete(id: number) {
+  async deleteRelative(id: number) {
     await this.relativesService.delete(id);
     window.location.reload();
   }
 
-  update(id: number, data: any) {
+  updateRelative(id: number, data: any) {
     this.router.navigate(['/employee/relatives/update', id], { state: data });
   }
 }
