@@ -28,10 +28,10 @@ export class ConsultEmployeeComponent implements AfterViewInit{
 		displayedColumns: string[] = ['id', 'name', 'lastname', 'email', 'actions']
 
 		@ViewChild(MatPaginator) paginator!: MatPaginator
-	
+
 		async ngAfterViewInit() {
 	        await this.getEmployee()
-			this.dataSource.paginator = this.paginator;
+			this.dataSource.paginator = this.paginator
 	    }
 
     async getEmployee(){
@@ -48,11 +48,15 @@ export class ConsultEmployeeComponent implements AfterViewInit{
 	update(id: number, data: any) {
 		this.router.navigate(['/employee/update', id], { state: data })
 	}
+
+	goToCreateAfiliation(id: number, data: any) {
+		this.router.navigate(['/employee/afiliation/consult'], { state: data, queryParams: { id: id } });
+	}
 }
 
 export interface Employee {
-	id: number;
-	name: string;
-	lastname: string;
-	email: string;
+	id: number
+	name: string
+	lastname: string
+	email: string
 }

@@ -8,6 +8,9 @@ import { guestGuard } from './guards/guest-guard'
 import { ConsultEmployeeComponent } from './components/employees/consult/consult.component'
 import { CreateEmployeeComponent } from './components/employees/create/create.component'
 import { UpdateEmployeeComponent } from './components/employees/update/update.component'
+import { ConsultEmployeeAfiliationsComponent } from './components/employee-afiliations/consult/consult.component'
+import { CreateEmployeeAfiliationsComponent } from './components/employee-afiliations/create/create.component'
+import { UpdateEmployeeAfiliationsComponent } from './components/employee-afiliations/update/update.component'
 
 import { CreateRelativesComponent } from './components/relatives/create/create.component'
 import { ConsultRelativesComponent } from './components/relatives/consult/consult.component'
@@ -46,6 +49,21 @@ export const routes: Routes = [
     {
         path: 'employee/update/:id',
         component: UpdateEmployeeComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'employee/afiliation/consult',
+        component: ConsultEmployeeAfiliationsComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'employee/afiliation/create',
+        component: CreateEmployeeAfiliationsComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'employee/afiliation/update/:id',
+        component: UpdateEmployeeAfiliationsComponent,
         canActivate: [authGuard]
     },
     {
