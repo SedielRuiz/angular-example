@@ -6,7 +6,6 @@
     <button mat-button *ngIf="!userService.isLogged()" routerLink="/register">Register</button>
 
     <button mat-button *ngIf="userService.isLogged()" routerLink="employee/consult">Employee</button>
-    <button mat-button *ngIf="userService.isLogged()" routerLink="relatives/consult">Relatives</button>
     <button mat-button *ngIf="userService.isLogged()" routerLink="/dashboard">Dashboard</button>
 
     <span class="example-spacer"></span>

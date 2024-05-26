@@ -67,17 +67,17 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
-        path: 'relatives/all',
+        path: 'employee/relatives/all',
         component: CreateRelativesComponent,
         canActivate: [authGuard]
     },
     {
-        path: 'relatives/create',
+        path: 'employee/relatives/create',
         component: CreateRelativesComponent,
         canActivate: [authGuard]
     },
     {
-        path: 'relatives/consult',
+        path: 'employee/relatives/consult/:id',
         component: ConsultRelativesComponent,
         canActivate: [authGuard]
     },

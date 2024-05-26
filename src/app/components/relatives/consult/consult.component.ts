@@ -49,7 +49,7 @@ export class ConsultRelativesComponent implements AfterViewInit{
 	    }
 
     async getRelative(){
-        const response: any = await this.relativesService.getRelatives(1)//TO-DO Send user id from JWT
+        const response: any = await this.relativesService.getRelatives(this.id)//TO-DO Send user id from JWT
 		this.dataSource = new MatTableDataSource<Relative>(response.data)
     }
 
