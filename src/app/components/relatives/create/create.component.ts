@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject, NgModule } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { MatDialog } from '@angular/material/dialog'
@@ -10,11 +10,15 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatDividerModule } from '@angular/material/divider'
 import { RelativesService } from '../../../services/relatives.service'
 import { RelativeIdService } from '../../../services/relative-id.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
     selector: 'app-create',
     standalone: true,
     imports: [
+        MatNativeDateModule,
+        MatDatepickerModule,
         RouterModule,
         ReactiveFormsModule,
         MatCardModule,
