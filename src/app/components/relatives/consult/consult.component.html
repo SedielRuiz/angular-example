@@ -1,6 +1,6 @@
 
 <h2>Consult</h2>
-<button mat-stroked-button routerLink="/relatives/create" color="primary">Create</button>
+<button mat-stroked-button routerLink="/employee/relatives/create" color="primary">Create</button>
 <hr>
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
@@ -11,8 +11,8 @@
         </ng-container>
 
         <ng-container matColumnDef="employeeId">
-        <th mat-header-cell *matHeaderCellDef> EmployeeId. </th>
-        <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+        <th mat-header-cell *matHeaderCellDef> Employee. </th>
+        <td mat-cell *matCellDef="let element"> {{element.employee.name}} {{element.employee.lastname}} </td>
         </ng-container>
     
         <ng-container matColumnDef="name">
