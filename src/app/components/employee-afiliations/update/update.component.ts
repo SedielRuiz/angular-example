@@ -62,13 +62,9 @@ export class UpdateEmployeeAfiliationsComponent {
   async updateEmployeeAfiliation() {
     try {
       const formData = this.updateAfiliationForm.value
-      console.log(formData)
       const afiliationData = this.prepareAfiliationData(formData)
-      console.log(afiliationData)
-      console.log(this.id)
       const response: any = await this.afiliationService.update(this.id, afiliationData)
-      console.log(response)
-      this.router.navigate(['/employee/afiliation/consult'], { state: this.data, queryParams: { id: this.id } })
+      this.router.navigate(['/employee/afiliation/consult'], { queryParams: { id: this.data.employeeId } })
     } catch (error: any) {
       console.log(error.error.message)
       this.dialog.open(ErrorDialogComponent, {
@@ -78,6 +74,10 @@ export class UpdateEmployeeAfiliationsComponent {
           }
       })
     }
+  }
+
+  goToConsult() {
+    this.router.navigate(['/employee/afiliation/consult'], { queryParams: { id: this.data.employeeId } })
   }
 
   prepareAfiliationData(formData: any) {

@@ -36,8 +36,7 @@ export class CreateEmployeeAfiliationsComponent {
   employeeId = 0
   afiliationForm: FormGroup
   afiliationService = inject(EmployeeAfiliationsService)
-  navigationData: any
-  employeeInstance: any
+  instanceEmployeed: any
 
   constructor(
     private router: Router,
@@ -45,44 +44,46 @@ export class CreateEmployeeAfiliationsComponent {
     private route: ActivatedRoute,
   ) {
     this.route.queryParams.subscribe(params => {
-      this.employeeId = params['id']
-    })
-    this.navigationData = this.router.getCurrentNavigation()?.extras.state
-    console.log(this.navigationData)
+			this.employeeId = params['id']
+		  })
+    console.log(this.employeeId)
     this.afiliationForm = new FormGroup({
+
       entityName: new FormControl(),
-      dateafiliation: new FormControl(),
+      dateAfiliation: new FormControl(),
       status: new FormControl()
     })
-    this.employeeInstance = {}
+    this.instanceEmployeed = {}
   }
 
   async create() {
     try {
-      const formData = this.afiliationForm.value
-      console.log(formData)
-      const afiliationData = this.prepareafiliationData(formData)
-      console.log(afiliationData)
-      console.log(this.employeeId)
-      const response: any = await this.afiliationService.create(this.employeeId, afiliationData)
+      const data = this.afiliationForm.value
+      const afiliation = this.save(data)
+      const response: any = await this.afiliationService.create(this.employeeId, afiliation)
       console.log(response)
-      this.router.navigate(['/employee/afiliation/consult'], { state: this.navigationData, queryParams: { id: this.employeeId } })
-    } catch (error: any) {
-      console.log(error.error.message)
+      this.router.navigate(['/employee/afiliation/consult'], { queryParams: { id: this.employeeId } })
+    } catch (response: any) {
+      console.log(response.error.message)
       this.dialog.open(ErrorDialogComponent, {
-        data: {
-          message: error.error.message,
-          statusCode: error.error.statusCode
-        }
+          data: {
+              message: response.error.message,
+              statusCode: response.error.statusCode
+          }
       })
     }
   }
 
-  prepareafiliationData(formData: any) {
-    this.employeeInstance.employeeId = this.employeeId
-    this.employeeInstance.entityName = formData.entityName
-    this.employeeInstance.dateafiliation = formData.dateafiliation
-    this.employeeInstance.status = formData.status
-    return this.employeeInstance
+
+  save(data: any) {
+    this.instanceEmployeed.employeeId = this.employeeId
+    this.instanceEmployeed.entityName = data.entityName
+    this.instanceEmployeed.dateAfiliation = data.dateAfiliation
+    this.instanceEmployeed.status = data.status
+    return this.instanceEmployeed
+  }
+
+  goToConsult() {
+    this.router.navigate(['/employee/afiliation/consult'], { queryParams: { id: this.employeeId } })
   }
 }
