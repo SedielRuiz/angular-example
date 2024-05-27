@@ -14,6 +14,7 @@ import { UpdateEmployeeAfiliationsComponent } from './components/employee-afilia
 
 import { CreateRelativesComponent } from './components/relatives/create/create.component'
 import { ConsultRelativesComponent } from './components/relatives/consult/consult.component'
+import { UpdateRelativeComponent } from './components/relatives/update/update.component'
 
 export const routes: Routes = [
     //{ path: '**', component: PageNotFoundComponent },
@@ -79,6 +80,11 @@ export const routes: Routes = [
     {
         path: 'employee/relatives/consult/:id',
         component: ConsultRelativesComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'employee/relatives/update/:id',
+        component: UpdateRelativeComponent,
         canActivate: [authGuard]
     },
 ]
