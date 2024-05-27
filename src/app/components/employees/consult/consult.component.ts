@@ -55,6 +55,9 @@ export class ConsultEmployeeComponent implements AfterViewInit{
 	goToShowRelatives(id: number, data: any) {
 		this.router.navigate([`/employee/relatives/consult`, id], { state: data});
 	}
+	goToShowDocuments(id: number, data: any) {
+		this.router.navigate([`/employee/documents/consult`, id], { state: data});
+	}
 }
 
 export interface Employee {
