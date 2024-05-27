@@ -1,0 +1,32 @@
+import { HttpClient } from '@angular/common/http'
+import { Injectable, inject } from '@angular/core'
+import { firstValueFrom } from 'rxjs'
+import { environment } from '../../environment'
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RelativesService {
+
+  private baseUrl: string
+
+  constructor(private httpClient: HttpClient) {
+      this.baseUrl = environment.baseUrl
+  }
+
+  getRelatives(employeeId: number): Promise<any> {
+      return firstValueFrom(this.httpClient.get<any>(`${this.baseUrl}/employee/relatives/all?employeeId=${employeeId}`))
+  }
+
+  create(formData: any): Promise<any> {
+      return firstValueFrom(this.httpClient.post<any>(`${this.baseUrl}/employee/relatives/create`, formData));
+  }
+
+  update(id: number, formData: any): Promise<any> { 
+      return firstValueFrom(this.httpClient.put<any>(`${this.baseUrl}/employee/relatives/update/${id}`, formData));
+  }
+
+  delete(id: number): Promise<any> {
+      return firstValueFrom(this.httpClient.delete<any>(`${this.baseUrl}/employee/relatives/delete/${id}`));
+  }
+}

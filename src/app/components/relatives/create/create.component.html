@@ -1,0 +1,57 @@
+<form [formGroup]="relativeForm" (ngSubmit)="create()">
+    <mat-card class="example-card">
+        <mat-card-header>
+        <mat-card-title>New Relative</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input formControlName="name" matInput>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Lastname</mat-label>
+                    <input formControlName="lastname" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Document</mat-label>
+                    <input formControlName="document" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Phone</mat-label>
+                    <input formControlName="phone" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address</mat-label>
+                    <input formControlName="address" matInput>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Department</mat-label>
+                    <input formControlName="department" matInput>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <mat-label>BirthDate</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthDate" readonly placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Relationship</mat-label>
+                    <input formControlName="relationship" matInput>
+                </mat-form-field>
+                <br>
+                <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button type="submit" color="basic">Save</button>
+            <button mat-button routerLink="/employee/consult" color="warn">Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+

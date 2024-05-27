@@ -12,6 +12,10 @@ import { ConsultEmployeeAfiliationsComponent } from './components/employee-afili
 import { CreateEmployeeAfiliationsComponent } from './components/employee-afiliations/create/create.component'
 import { UpdateEmployeeAfiliationsComponent } from './components/employee-afiliations/update/update.component'
 
+import { CreateRelativesComponent } from './components/relatives/create/create.component'
+import { ConsultRelativesComponent } from './components/relatives/consult/consult.component'
+import { UpdateRelativeComponent } from './components/relatives/update/update.component'
+
 export const routes: Routes = [
     //{ path: '**', component: PageNotFoundComponent },
     {
@@ -62,5 +66,25 @@ export const routes: Routes = [
         path: 'employee/afiliation/update/:id',
         component: UpdateEmployeeAfiliationsComponent,
         canActivate: [authGuard]
-    }
+    },
+    {
+        path: 'employee/relatives/all',
+        component: CreateRelativesComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'employee/relatives/create',
+        component: CreateRelativesComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'employee/relatives/consult/:id',
+        component: ConsultRelativesComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'employee/relatives/update/:id',
+        component: UpdateRelativeComponent,
+        canActivate: [authGuard]
+    },
 ]

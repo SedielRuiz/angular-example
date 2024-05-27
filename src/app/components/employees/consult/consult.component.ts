@@ -52,6 +52,9 @@ export class ConsultEmployeeComponent implements AfterViewInit{
 	goToCreateAfiliation(id: number, data: any) {
 		this.router.navigate(['/employee/afiliation/consult'], { state: data, queryParams: { id: id } });
 	}
+	goToShowRelatives(id: number, data: any) {
+		this.router.navigate([`/employee/relatives/consult`, id], { state: data});
+	}
 }
 
 export interface Employee {
