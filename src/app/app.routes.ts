@@ -92,7 +92,7 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
-        path: 'employee/documents/consult',
+        path: 'employee/documents/consult/:id',
         component: ConsultDocumentsComponent,
         canActivate: [authGuard]
     },
