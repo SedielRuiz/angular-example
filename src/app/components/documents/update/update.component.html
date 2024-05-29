@@ -1,33 +1,26 @@
-<form [formGroup]="documentForm" (ngSubmit)="update()">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>Update Document</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-form-field class="example-full-width">
-          <mat-label>Name</mat-label>
-          <input formControlName="name" matInput />
-        </mat-form-field>
-        <br />
-        <mat-form-field class="example-full-width">
-          <mat-label>Extension</mat-label>
-          <input formControlName="extension" matInput />
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Version</mat-label>
-          <input formControlName="version" matInput />
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Url</mat-label>
-          <input formControlName="url" matInput />
-        </mat-form-field>
-        <br/>
-        <mat-divider></mat-divider>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button type="submit" color="basic">Save</button>
-        <button mat-button (click)="cancelUpdateDocument()" color="warn">Cancel</button> 
-      </mat-card-actions>
-    </mat-card>
-  </form>
-  
+<form [formGroup]="documentForm" (ngSubmit)="update()" enctype="multipart/form-data">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Add Document</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput />
+      </mat-form-field>
+      <br />
+      <div class="example-full-width">
+        <label for="file">Document</label>
+        <input type="file" (change)="onFileChange($event)" id="file" />
+      </div>
+      <br />
+      <div class="mat-slide-toggle-container">
+        <mat-slide-toggle formControlName="status">Status</mat-slide-toggle>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button type="submit" color="basic">Save</button>
+      <button mat-button routerLink="/employee/consult" color="warn">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

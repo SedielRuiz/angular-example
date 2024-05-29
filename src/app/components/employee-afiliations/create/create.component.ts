@@ -7,7 +7,6 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatDatepickerModule } from '@angular/material/datepicker'
-import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatNativeDateModule } from '@angular/material/core'
 import { RouterModule, Router, ActivatedRoute } from '@angular/router'
 import { ErrorDialogComponent } from '../../error-dialog/error-dialog.component'
@@ -26,7 +25,6 @@ import { EmployeeAfiliationsService } from '../../../services/employee-afiliatio
     MatInputModule,
     MatDividerModule,
     MatDatepickerModule,
-    MatSlideToggleModule,
     MatNativeDateModule
   ],
   templateUrl: './create.component.html',
@@ -48,10 +46,8 @@ export class CreateEmployeeAfiliationsComponent {
 		  })
     console.log(this.employeeId)
     this.afiliationForm = new FormGroup({
-
       entityName: new FormControl(),
       dateAfiliation: new FormControl(),
-      status: new FormControl()
     })
     this.instanceEmployeed = {}
   }
@@ -79,7 +75,7 @@ export class CreateEmployeeAfiliationsComponent {
     this.instanceEmployeed.employeeId = this.employeeId
     this.instanceEmployeed.entityName = data.entityName
     this.instanceEmployeed.dateAfiliation = data.dateAfiliation
-    this.instanceEmployeed.status = data.status
+    this.instanceEmployeed.status = true
     return this.instanceEmployeed
   }
 
